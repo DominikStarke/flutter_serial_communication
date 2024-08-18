@@ -41,22 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.8"
-  dylib:
-    dependency: transitive
-    description:
-      name: dylib
-      sha256: bf609b3eb6492a3309b3d1dbe8f83a4031de5535dd7686be33487051cc760bb0
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.3"
   fake_async:
     dependency: transitive
     description:
@@ -65,14 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
-  ffi:
-    dependency: transitive
-    description:
-      name: ffi
-      sha256: "16ed7b077ef01ad6170a3d0c57caa4a112a38d7a2ed5602e0aca9ca6f3d98da6"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -82,33 +58,26 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: a25a15ebbdfc33ab1cd26c63a6ee519df92338a9c10f122adda92938253bef04
+      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
-  flutter_serial_communication:
-    dependency: "direct main"
-    description:
-      path: "../plug"
-      relative: true
-    source: path
-    version: "0.2.6"
+    version: "4.0.0"
   flutter_serial_communication_android_support:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../plug_android_support"
       relative: true
     source: path
     version: "0.0.1"
   flutter_serial_communication_desktop_support:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../plug_desktop_support"
       relative: true
     source: path
     version: "0.0.1"
   flutter_serial_communication_platform_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       path: "../plug_platform_interface"
       relative: true
@@ -147,10 +116,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: "0a217c6c989d21039f1498c3ed9f3ed71b354e69873f13a8dfc3c9fe76f1b452"
+      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.1"
+    version: "4.0.0"
   matcher:
     dependency: transitive
     description:
@@ -183,16 +152,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
-  platform:
-    dependency: transitive
-    description:
-      name: platform
-      sha256: "9b71283fc13df574056616011fb138fd3b793ea47cc509c189a6c3fa5f8a1a65"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.5"
   plugin_platform_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: plugin_platform_interface
       sha256: "4820fbfdb9478b1ebae27888254d445073732dae3d6ea81f0b7e06d5dedc3f02"

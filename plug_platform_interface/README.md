@@ -1,0 +1,1 @@
+# flutter_serial_communication_platform_interface

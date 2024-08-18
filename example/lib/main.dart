@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter/services.dart';
 import 'package:flutter_serial_communication/flutter_serial_communication.dart';
-import 'package:flutter_serial_communication/models/device_info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -96,7 +94,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ],
                 );
-              }).toList(),
+              }),
               const SizedBox(height: 16.0),
               FilledButton(
                 onPressed: isConnected ? _disconnectButtonPressed : null,

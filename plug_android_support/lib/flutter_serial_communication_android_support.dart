@@ -6,8 +6,6 @@ import 'package:flutter_serial_communication_platform_interface/default.dart';
 import 'package:flutter_serial_communication_platform_interface/device.dart';
 import 'package:flutter_serial_communication_platform_interface/interface.dart';
 
-const eventChannelID = 'id.farellsujanto.flutter_serial_communication.flutter_event_channel';
-
 /// An implementation of [FlutterSerialCommunicationImplementation] that uses method channels.
 class FlutterSerialCommunicationAndroidSupport extends FlutterSerialCommunicationImplementation {
   static void registerWith() {
@@ -68,17 +66,17 @@ class FlutterSerialCommunicationAndroidSupport extends FlutterSerialCommunicatio
 
   /// Listen to message received from serial port
   @override
-  EventChannel getSerialMessageListener() {
-    const EventChannel stream =
-        EventChannel('$eventChannelID/serialStreamChannel');
+  getSerialMessageListener() {
+    const channel = EventChannel('$eventChannelID/serialStreamChannel');
+    final stream = channel.receiveBroadcastStream().cast<List<int>>();
     return stream;
   }
 
   /// Listen to device connection status
   @override
-  EventChannel getDeviceConnectionListener() {
-    const EventChannel stream =
-        EventChannel('$eventChannelID/deviceConnectionStreamChannel');
+  getDeviceConnectionListener() {
+    const channel = EventChannel('$eventChannelID/deviceConnectionStreamChannel');
+    final stream = channel.receiveBroadcastStream().cast<bool>();
     return stream;
   }
 

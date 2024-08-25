@@ -24,14 +24,12 @@ class _MyAppState extends State<MyApp> {
 
     _flutterSerialCommunicationPlugin
         .getSerialMessageListener()
-        .receiveBroadcastStream()
         .listen((event) {
       debugPrint("Received From Native:  $event");
     });
 
     _flutterSerialCommunicationPlugin
         .getDeviceConnectionListener()
-        .receiveBroadcastStream()
         .listen((event) {
       setState(() {
         isConnected = event;

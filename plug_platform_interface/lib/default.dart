@@ -19,12 +19,12 @@ class FlutterSerialCommunicationImplementation extends FlutterSerialCommunicatio
     throw UnimplementedError('write() has not been implemented.');
   }
 
-  EventChannel getSerialMessageListener() {
+  Stream<List<int>> getSerialMessageListener() {
     throw UnimplementedError(
         'getSerialMessageListener() has not been implemented.');
   }
 
-  EventChannel getDeviceConnectionListener() {
+  Stream<bool> getDeviceConnectionListener() {
     throw UnimplementedError(
         'getDeviceConnectionListener() has not been implemented.');
   }

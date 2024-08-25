@@ -5,8 +5,8 @@
 import FlutterMacOS
 import Foundation
 
-import flutter_serial_communication_desktop_support
+import flutter_libserialport
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  FlutterSerialCommunicationDesktopSupportPlugin.register(with: registry.registrar(forPlugin: "FlutterSerialCommunicationDesktopSupportPlugin"))
+  FlutterLibserialportPlugin.register(with: registry.registrar(forPlugin: "FlutterLibserialportPlugin"))
 }

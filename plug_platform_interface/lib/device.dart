@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class DeviceInfo {
+class DeviceInfo<T> {
   final int? deviceId;
   final String version;
   final String deviceName;
@@ -9,6 +9,7 @@ class DeviceInfo {
   final int? productId;
   final int? vendorId;
   final String serialNumber;
+  final T? port;
 
   DeviceInfo({
     this.deviceId = 0,
@@ -19,6 +20,7 @@ class DeviceInfo {
     this.productId = 0,
     this.vendorId = 0,
     this.serialNumber = '',
+    this.port,
   });
 
   DeviceInfo copyWith({

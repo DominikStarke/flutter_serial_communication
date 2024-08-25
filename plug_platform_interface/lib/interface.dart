@@ -1,6 +1,7 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'default.dart';
 
+const eventChannelID = 'id.farellsujanto.flutter_serial_communication.flutter_event_channel';
 abstract class FlutterSerialCommunicationPlatformInterface extends PlatformInterface {
   /// Constructs a FlutterSerialCommunicationPlatform.
   FlutterSerialCommunicationPlatformInterface() : super(token: _token);

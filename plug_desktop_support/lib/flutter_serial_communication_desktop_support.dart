@@ -55,10 +55,9 @@ class FlutterSerialCommunicationDesktopSupport extends FlutterSerialCommunicatio
         await disconnect();
         throw SerialPort.lastError ?? const SerialPortError("An Unknown Error Occurred");
       }
-
+      
       if(Platform.isMacOS || Platform.isLinux) {
-        port..open(mode: SerialPortMode.read)
-            ..close();
+        port..openRead()..close();
       }
 
       if (port.openReadWrite() != true) {

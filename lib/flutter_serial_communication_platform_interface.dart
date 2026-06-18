@@ -60,11 +60,11 @@ abstract class FlutterSerialCommunicationPlatform extends PlatformInterface {
     throw UnimplementedError('setRTS() has not been implemented.');
   }
 
-  Future<void> setParameters(
-      int baudRate, 
-      int dataBits, 
-      int stopBits, 
-      int parity, {
+  Future<void> setParameters({
+      int? baudRate, 
+      int? dataBits, 
+      int? stopBits, 
+      int? parity,
       int? usbReadQueueCount,
       int? usbReadQueueSize,
       int? usbIoManagerReadBufferSize,

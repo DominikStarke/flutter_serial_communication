@@ -97,24 +97,23 @@ class MethodChannelFlutterSerialCommunication
 
   /// Set connection parameters and optional read buffer configuration
   /// 
-  /// Read buffer parameters must be set before opening the port (before connect()) to take effect
+  /// All parameters are optional. Read buffer parameters must be set before opening the port (before connect()) to take effect
   @override
-  Future<bool> setParameters(
-      int baudRate, 
-      int dataBits, 
-      int stopBits, 
-      int parity, {
+  Future<bool> setParameters({
+      int? baudRate, 
+      int? dataBits, 
+      int? stopBits, 
+      int? parity,
       int? usbReadQueueCount,
       int? usbReadQueueSize,
       int? usbIoManagerReadBufferSize,
       int? usbIoManagerReadQueueCount,
     }) async {
-    final connectionParams = <String, dynamic>{
-      'baudRate': baudRate,
-      'dataBits': dataBits,
-      'stopBits': stopBits,
-      'parity': parity,
-    };
+    final connectionParams = <String, dynamic>{};
+    if (baudRate != null) connectionParams['baudRate'] = baudRate;
+    if (dataBits != null) connectionParams['dataBits'] = dataBits;
+    if (stopBits != null) connectionParams['stopBits'] = stopBits;
+    if (parity != null) connectionParams['parity'] = parity;
     if (usbReadQueueCount != null) connectionParams['usbReadQueueCount'] = usbReadQueueCount;
     if (usbReadQueueSize != null) connectionParams['usbReadQueueSize'] = usbReadQueueSize;
     if (usbIoManagerReadBufferSize != null) connectionParams['usbIoManagerReadBufferSize'] = usbIoManagerReadBufferSize;

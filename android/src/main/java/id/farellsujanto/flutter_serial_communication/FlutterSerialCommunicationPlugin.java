@@ -104,10 +104,14 @@ public class FlutterSerialCommunicationPlugin implements FlutterPlugin, MethodCa
         break;
       }
       case "setParameters": {
-        baudRate = call.argument("baudRate");
-        dataBits = call.argument("dataBits");
-        stopBits = call.argument("stopBits");
-        parity = call.argument("parity");
+        Integer newBaudRate = call.argument("baudRate");
+        Integer newDataBits = call.argument("dataBits");
+        Integer newStopBits = call.argument("stopBits");
+        Integer newParity = call.argument("parity");
+        if (newBaudRate != null) baudRate = newBaudRate;
+        if (newDataBits != null) dataBits = newDataBits;
+        if (newStopBits != null) stopBits = newStopBits;
+        if (newParity != null) parity = newParity;
         usbReadQueueCount = call.argument("usbReadQueueCount");
         usbReadQueueSize = call.argument("usbReadQueueSize");
         usbIoManagerReadBufferSize = call.argument("usbIoManagerReadBufferSize");

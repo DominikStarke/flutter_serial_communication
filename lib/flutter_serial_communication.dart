@@ -43,22 +43,22 @@ class FlutterSerialCommunication {
 
   /// Set connection parameters and optional read buffer configuration
   /// 
-  /// Read buffer parameters must be set before opening the port (before connect()) to take effect
+  /// All parameters are optional. Read buffer parameters must be set before opening the port (before connect()) to take effect
   /// 
   /// Parameters:
-  /// - [baudRate]: Baud rate for serial communication
-  /// - [dataBits]: Number of data bits
-  /// - [stopBits]: Number of stop bits
-  /// - [parity]: Parity setting
+  /// - [baudRate]: Baud rate for serial communication (optional)
+  /// - [dataBits]: Number of data bits (optional)
+  /// - [stopBits]: Number of stop bits (optional)
+  /// - [parity]: Parity setting (optional)
   /// - [usbReadQueueCount]: Number of buffers in UsbSerialPort read queue (optional)
   /// - [usbReadQueueSize]: Size of each buffer in UsbSerialPort read queue (optional)
   /// - [usbIoManagerReadBufferSize]: Size of read buffer for SerialInputOutputManager (optional)
   /// - [usbIoManagerReadQueueCount]: Number of buffers in SerialInputOutputManager queue (optional)
-  Future<void> setParameters(
-      int baudRate, 
-      int dataBits, 
-      int stopBits, 
-      int parity, {
+  Future<void> setParameters({
+      int? baudRate, 
+      int? dataBits, 
+      int? stopBits, 
+      int? parity,
       int? usbReadQueueCount,
       int? usbReadQueueSize,
       int? usbIoManagerReadBufferSize,
@@ -66,10 +66,10 @@ class FlutterSerialCommunication {
     }) async {
     return FlutterSerialCommunicationPlatform.instance
         .setParameters(
-          baudRate, 
-          dataBits, 
-          stopBits, 
-          parity,
+          baudRate: baudRate, 
+          dataBits: dataBits, 
+          stopBits: stopBits, 
+          parity: parity,
           usbReadQueueCount: usbReadQueueCount,
           usbReadQueueSize: usbReadQueueSize,
           usbIoManagerReadBufferSize: usbIoManagerReadBufferSize,

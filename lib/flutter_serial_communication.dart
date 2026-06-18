@@ -41,10 +41,40 @@ class FlutterSerialCommunication {
     return FlutterSerialCommunicationPlatform.instance.setRTS(set);
   }
 
+  /// Set connection parameters and optional read buffer configuration
+  /// 
+  /// Read buffer parameters must be set before opening the port (before connect()) to take effect
+  /// 
+  /// Parameters:
+  /// - [baudRate]: Baud rate for serial communication
+  /// - [dataBits]: Number of data bits
+  /// - [stopBits]: Number of stop bits
+  /// - [parity]: Parity setting
+  /// - [usbReadQueueCount]: Number of buffers in UsbSerialPort read queue (optional)
+  /// - [usbReadQueueSize]: Size of each buffer in UsbSerialPort read queue (optional)
+  /// - [usbIoManagerReadBufferSize]: Size of read buffer for SerialInputOutputManager (optional)
+  /// - [usbIoManagerReadQueueCount]: Number of buffers in SerialInputOutputManager queue (optional)
   Future<void> setParameters(
-      int baudRate, int dataBits, int stopBits, int parity) async {
+      int baudRate, 
+      int dataBits, 
+      int stopBits, 
+      int parity, {
+      int? usbReadQueueCount,
+      int? usbReadQueueSize,
+      int? usbIoManagerReadBufferSize,
+      int? usbIoManagerReadQueueCount,
+    }) async {
     return FlutterSerialCommunicationPlatform.instance
-        .setParameters(baudRate, dataBits, stopBits, parity);
+        .setParameters(
+          baudRate, 
+          dataBits, 
+          stopBits, 
+          parity,
+          usbReadQueueCount: usbReadQueueCount,
+          usbReadQueueSize: usbReadQueueSize,
+          usbIoManagerReadBufferSize: usbIoManagerReadBufferSize,
+          usbIoManagerReadQueueCount: usbIoManagerReadQueueCount,
+        );
   }
 
   Future<void> purgeHwBuffers(

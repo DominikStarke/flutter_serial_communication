@@ -58,6 +58,12 @@ public class FlutterSerialCommunicationPlugin implements FlutterPlugin, MethodCa
   private boolean purgeWriteBuffers = false;
   private boolean purgeReadBuffers = false;
 
+  // Read configuration - null means use default/don't configure
+  private Integer usbReadQueueCount = null;
+  private Integer usbReadQueueSize = null;
+  private Integer usbIoManagerReadBufferSize = null;
+  private Integer usbIoManagerReadQueueCount = null;
+
   private FlutterActivity activity;
 
   @Override
@@ -102,6 +108,10 @@ public class FlutterSerialCommunicationPlugin implements FlutterPlugin, MethodCa
         dataBits = call.argument("dataBits");
         stopBits = call.argument("stopBits");
         parity = call.argument("parity");
+        usbReadQueueCount = call.argument("usbReadQueueCount");
+        usbReadQueueSize = call.argument("usbReadQueueSize");
+        usbIoManagerReadBufferSize = call.argument("usbIoManagerReadBufferSize");
+        usbIoManagerReadQueueCount = call.argument("usbIoManagerReadQueueCount");
         setParameters(baudRate, dataBits, stopBits, parity, result);
         break;
       }
@@ -308,6 +318,12 @@ public class FlutterSerialCommunicationPlugin implements FlutterPlugin, MethodCa
   public void openPort() {
     try {
       usbSerialPort = driver.getPorts().get(0);
+      
+      // Configure read queue on port if parameters were set
+      if (usbReadQueueCount != null && usbReadQueueSize != null) {
+        usbSerialPort.setReadQueue(usbReadQueueCount, usbReadQueueSize);
+      }
+      
       //usbSerialPort.getControlLines();
       usbSerialPort. getSupportedControlLines();
 
@@ -318,6 +334,15 @@ public class FlutterSerialCommunicationPlugin implements FlutterPlugin, MethodCa
       connected = true;
       deviceConnectionHandler.success(true);
       usbIoManager = new SerialInputOutputManager(usbSerialPort, this);
+      
+      // Configure IO manager read parameters if they were set
+      if (usbIoManagerReadBufferSize != null) {
+        usbIoManager.setReadBufferSize(usbIoManagerReadBufferSize);
+      }
+      if (usbIoManagerReadQueueCount != null) {
+        usbIoManager.setReadQueue(usbIoManagerReadQueueCount);
+      }
+      
       usbIoManager.start();
 
       handleConnectResult(true);

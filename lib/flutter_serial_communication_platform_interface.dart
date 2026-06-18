@@ -61,7 +61,15 @@ abstract class FlutterSerialCommunicationPlatform extends PlatformInterface {
   }
 
   Future<void> setParameters(
-      int baudRate, int dataBits, int stopBits, int parity) {
+      int baudRate, 
+      int dataBits, 
+      int stopBits, 
+      int parity, {
+      int? usbReadQueueCount,
+      int? usbReadQueueSize,
+      int? usbIoManagerReadBufferSize,
+      int? usbIoManagerReadQueueCount,
+    }) {
     throw UnimplementedError('setParameters() has not been implemented.');
   }
 

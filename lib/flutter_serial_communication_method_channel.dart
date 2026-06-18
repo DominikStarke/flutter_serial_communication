@@ -95,16 +95,31 @@ class MethodChannelFlutterSerialCommunication
     return isSent ?? false;
   }
 
-  /// Set connection parameters
+  /// Set connection parameters and optional read buffer configuration
+  /// 
+  /// Read buffer parameters must be set before opening the port (before connect()) to take effect
   @override
   Future<bool> setParameters(
-      int baudRate, int dataBits, int stopBits, int parity) async {
+      int baudRate, 
+      int dataBits, 
+      int stopBits, 
+      int parity, {
+      int? usbReadQueueCount,
+      int? usbReadQueueSize,
+      int? usbIoManagerReadBufferSize,
+      int? usbIoManagerReadQueueCount,
+    }) async {
     final connectionParams = <String, dynamic>{
       'baudRate': baudRate,
       'dataBits': dataBits,
       'stopBits': stopBits,
       'parity': parity,
     };
+    if (usbReadQueueCount != null) connectionParams['usbReadQueueCount'] = usbReadQueueCount;
+    if (usbReadQueueSize != null) connectionParams['usbReadQueueSize'] = usbReadQueueSize;
+    if (usbIoManagerReadBufferSize != null) connectionParams['usbIoManagerReadBufferSize'] = usbIoManagerReadBufferSize;
+    if (usbIoManagerReadQueueCount != null) connectionParams['usbIoManagerReadQueueCount'] = usbIoManagerReadQueueCount;
+    
     final isSent = await methodChannel.invokeMethod<bool>(
         'setParameters', connectionParams);
     return isSent ?? false;

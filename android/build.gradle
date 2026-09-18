@@ -12,15 +12,15 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 34
+    compileSdkVersion flutter.compileSdkVersion
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion flutter.minSdkVersion
     }
 
     buildFeatures {
@@ -33,5 +33,5 @@ android {
 }
 
 dependencies {
-    api 'com.github.mik3y:usb-serial-for-android:3.10.0'
+    api 'com.github.mik3y:usb-serial-for-android:3.11.0'
 }
